@@ -27,28 +27,70 @@ land					answer
 #include<algorithm>
 using namespace std;
 
-int solution(vector<vector<int>> board)
+int hopscotch(vector<vector<int> > land)
 {
-   int max = 0;
-	for (int i = 1; i < board.size(); i++)
+	int pivot = 0;
+	int max = 0;
+
+	for (int j = 0; j < 4; j++)
 	{
-		for (int j = 1; j < board[i].size(); j++)
-		{
-			if (board[i][j] != 0)
-			{
-				if (i == 0 || j == 0) board[i][j] = 1;
-				else board[i][j] = min({ board[i][j - 1], board[i - 1][j - 1], board[i - 1][j] }) + 1;
-			}
-			if (max < board[i][j])
-				max = board[i][j];
-		}
+		if (max < land[pivot][j] + compare(land, pivot, j))
+			max = land[pivot][j] + compare(land, pivot, j);
 	}
-    
-    return max * max;
+
+	return max;
 }
 
+int compare(vector<vector<int>> land, int row, int col)
+{
+	int answer = 0;
+	int max = 0;
+	int tmpRow = 0;
+	int tmpCol = 0;
+
+	if (row + 1 == land.size() - 1)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if (i == col) continue;
+			if (max < land[row + 1][i])
+				max = land[row + 1][i];
+		}
+
+		return max;
+	}
+
+	for (int j = 0; j < 4; j++)
+	{
+		if (col == j) continue;
+		else
+		{
+			for (int k = 0; k < 4; k++)
+			{
+				if (k == j) continue;
+				else
+				{
+					if (max < land[row + 1][j] + land[row + 2][k])
+					{										 
+						max = land[row + 1][j] + land[row + 2][k];
+						tmpRow = row + 1;
+						tmpCol = j;
+					}
+					else if(max == land[row + 1][j] + land[row + 2][k])
+					{
+						if (row + 2 == land.size() - 1) continue;
+						if (land[row + 2][j] < land[row + 2][tmpCol])
+							tmpCol = j;
+					}
+				}
+			}
+		}
+	}
+
+	return land[tmpRow][tmpCol] + compare(land, tmpRow, tmpCol);
+}
 /* 과정 설명
-배열의 값이 1인 경우에 왼쪽, 왼쪽대각선위, 위 방향의 배열과 비교해서 minimum값을 구하고 + 1을 해준다
-이렇게 max값을 구해서 서로 곱해주면 정사각형의 넓이가 나온다.
+0번째 배열에서 밑으로 내려가면서 0 + 1 번째 배열에 값에 다음 0 + 2 배열의 값을 더해서 그중 큰 것을 골라준다
+문제는 너무 많은 시간이 걸린다. 최적화를 찾아보자
 */
 
