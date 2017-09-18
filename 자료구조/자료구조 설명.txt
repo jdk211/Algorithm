@@ -1,0 +1,10 @@
+cSLL : single linked list
+	insert, delete, display, reverse, search. clear
+cCLL : circlar linked list
+	insert, delete, display
+cDLL : double linked list
+	insert, delete, display
+
+cStack : LIFO last-in first-out
+	isEmpty, push, pop
+cQueue : FIFO first-in first-out

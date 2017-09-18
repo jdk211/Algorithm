@@ -142,6 +142,7 @@
     <ClInclude Include="cDNode.h" />
     <ClInclude Include="cDLL.h" />
     <ClInclude Include="cNode.h" />
+    <ClInclude Include="cQueue.h" />
     <ClInclude Include="cSLL.h" />
     <ClInclude Include="cStack.h" />
     <ClInclude Include="stdafx.h" />
@@ -153,6 +154,7 @@
     <ClCompile Include="cDNode.cpp" />
     <ClCompile Include="cDLL.cpp" />
     <ClCompile Include="cNode.cpp" />
+    <ClCompile Include="cQueue.cpp" />
     <ClCompile Include="cSLL.cpp" />
     <ClCompile Include="cStack.cpp" />
     <ClCompile Include="DataStructLinkedListPractice.cpp" />

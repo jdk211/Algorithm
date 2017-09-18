@@ -7,7 +7,8 @@
 #include "cCLL.h"
 #include "cDLL.h"
 #include "cStack.h"
-#include "ITEM.h"
+#include "cQueue.h"
+#include "ITEM.h" // 전역 struct를 가짐
 
 #include <iostream>
 
@@ -17,6 +18,7 @@ void sll();
 void cll();
 void dll();
 void stack();
+void queue();
 
 // 미로탈출 함수
 void escape();
@@ -32,6 +34,9 @@ int main()
 	//dll();
 	//stack();
 	//escape();
+	//queue();
+
+
 
     return 0;
 }
@@ -102,6 +107,18 @@ void stack()
 	cout << stack->pop() << endl;
 }
 
+void queue()
+{
+	cQueue<int>* queue = new cQueue<int>();
+	queue->enqueue(1);
+	queue->enqueue(2);
+	queue->enqueue(3);
+
+	cout << queue->dequeue() << endl;
+	cout << queue->dequeue() << endl;
+	cout << queue->dequeue() << endl;
+}
+
 // 미로탈출 알고리즘
 #pragma region escape_cave
 
@@ -123,7 +140,7 @@ void escape()
 	element cur = { 1, 0 };
 
 	cStack<element>* routeStack = new cStack<element>();
-	cStack<element>* backStack = new cStack<element>();
+	cStack<element>* backStack = new cStack<element>();		//다시 뒤로 돌아가는 길을 가진다.
 
 	int dumy = 0;
 
