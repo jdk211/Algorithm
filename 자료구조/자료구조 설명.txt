@@ -8,3 +8,7 @@ cDLL : double linked list
 cStack : LIFO last-in first-out
 	isEmpty, push, pop
 cQueue : FIFO first-in first-out
+	enqueue, dequeue
+
+BST : binary search tree
+	insert, delete, print

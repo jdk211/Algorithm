@@ -8,6 +8,8 @@
 #include "cDLL.h"
 #include "cStack.h"
 #include "cQueue.h"
+#include "cBST.h"
+
 #include "ITEM.h" // 전역 struct를 가짐
 
 #include <iostream>
@@ -19,6 +21,7 @@ void cll();
 void dll();
 void stack();
 void queue();
+void bst();
 
 // 미로탈출 함수
 void escape();
@@ -35,8 +38,7 @@ int main()
 	//stack();
 	//escape();
 	//queue();
-
-
+	//bst();
 
     return 0;
 }
@@ -117,6 +119,20 @@ void queue()
 	cout << queue->dequeue() << endl;
 	cout << queue->dequeue() << endl;
 	cout << queue->dequeue() << endl;
+}
+
+void bst()
+{
+	cBST<int>* bst = new cBST<int>();
+
+	bst->insert(5);
+	bst->insert(2);
+	bst->insert(1);
+	bst->insert(3);
+	bst->insert(4);
+	bst->delete_data(5);
+	bst->print();
+
 }
 
 // 미로탈출 알고리즘

@@ -138,6 +138,8 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cBST.h" />
+    <ClInclude Include="cBstNode.h" />
     <ClInclude Include="cCLL.h" />
     <ClInclude Include="cDNode.h" />
     <ClInclude Include="cDLL.h" />
@@ -150,6 +152,8 @@
     <ClInclude Include="ITEM.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cBST.cpp" />
+    <ClCompile Include="cBstNode.cpp" />
     <ClCompile Include="cCLL.cpp" />
     <ClCompile Include="cDNode.cpp" />
     <ClCompile Include="cDLL.cpp" />
